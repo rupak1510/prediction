@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Power Prediction</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
 </head>
 <body>
     <div class="container">
@@ -37,13 +37,13 @@
             <p id="output">Enter details above to see the prediction.</p>
         </div>
 
-        <img src="power-image.png" alt="Power Visualization" class="content-image">
+        <img src="{{ url_for('static', filename='power-image.png') }}" alt="Power Visualization" class="content-image">
     </div>
 
     <footer>
         <p>Power Prediction Project</p>
     </footer>
 
-    <script src="script.js"></script>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
 </body>
 </html>

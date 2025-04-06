@@ -4,7 +4,7 @@ import pickle
 import pandas as pd
 import numpy as np
 
-app = Flask(__name__, static_url_path='', static_folder='.')
+app = Flask(__name__)
 CORS(app)
 # Load  model
 import joblib
@@ -23,9 +23,12 @@ area_mapping = {
     'DUQ': [0, 0, 0, 0, 0, 1]
 }
 
+from flask import render_template
+
 @app.route('/')
 def serve_index():
-    return send_from_directory('.', 'index.html')
+    return render_template('index.html')
+
 
 @app.route('/predict', methods=['POST'])
 def predict():
