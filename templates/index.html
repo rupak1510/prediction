@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Power Prediction</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Power Prediction</h1>
+        <p>Enter a date and time to predict power usage in your area.</p>
+        
+        <form id="predictionForm">
+            <label for="area">Area:</label>
+            <select id="area" required>
+                <option value="" disabled selected>Select an area</option>
+                <option value="AEP">AEP</option>
+                <option value="COMED">COMED</option>
+                <option value="DAYTON">DAYTON</option>
+                <option value="DEOK">DEOK</option>
+                <option value="DOM">DOM</option>
+                <option value="DUQ">DUQ</option>
+            </select>
+            
+            <label for="date">Date:</label>
+            <input type="date" id="date" required>
+            
+            <label for="time">Time:</label>
+            <input type="time" id="time" required>
+            
+            <button type="submit">Predict Power</button>
+        </form>
+        
+        <div id="result" class="result-box">
+            <h2>Prediction Result</h2>
+            <p id="output">Enter details above to see the prediction.</p>
+        </div>
+
+        <img src="power-image.png" alt="Power Visualization" class="content-image">
+    </div>
+
+    <footer>
+        <p>Power Prediction Project</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
