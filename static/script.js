@@ -5,7 +5,6 @@ document.getElementById('predictionForm').addEventListener('submit', async funct
     const date = document.getElementById('date').value;
     const time = document.getElementById('time').value;
     
-    // Send data to the backend
     try {
         const response = await fetch('http://localhost:5000/predict', {
             method: 'POST',
