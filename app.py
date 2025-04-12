@@ -3,14 +3,27 @@ from flask_cors import CORS
 import pickle
 import pandas as pd
 import numpy as np
+import joblib
+import requests
+from io import BytesIO
 
 app = Flask(__name__)
 CORS(app)
 # Load  model
-import joblib
+def load_model_from_huggingface():
+    model_url = "https://huggingface.co/rupak15/power-prediction/resolve/main/random_forest_model_2.pkl"
+    try:
+        response = requests.get(model_url)
+        response.raise_for_status()  # Check for HTTP errors
+        model_data = BytesIO(response.content)
+        model = joblib.load(model_data)
+        print("Model type:", type(model))
+        return model
+    except Exception as e:
+        print(f"Error loading model: {e}")
+        raise
 
-model = joblib.load('random_forest_model_2.pkl')
-print("Model type:", type(model))
+model = load_model_from_huggingface()
 
 # Area to one-hot encoding mapping
 area_columns = ['area_AEP', 'area_COMED', 'area_DAYTON', 'area_DEOK', 'area_DOM', 'area_DUQ']
